@@ -5,7 +5,7 @@ Small projects I made while learning how to use Vue JS
 
 > A Vue.js project
 
-## Build Setup
+## Choose Project & Build Setup
 
 ``` bash
 # install dependencies
