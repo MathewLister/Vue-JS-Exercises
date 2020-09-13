@@ -1,6 +1,39 @@
 # Vue-JS-Exercises
 Small projects I made while learning how to use Vue JS
 
+## QuizApp
+
+## AnimationsAndTransitions
+
+## Forms
+
+## MoreForms
+
+## StarWars-Fighter
+![StarWars-Fighter Demo](Gifs/demo.gif)
+
+## Quotes-VueJS
+
+## SharingComponents
+
+## Components
+
+## FiltersAndMixins
+
+## MoreDirectives
+
+## Slots
+
+
+
+
+
+
+
+
+
+
+
 # vue-cli
 
 > A Vue.js project
