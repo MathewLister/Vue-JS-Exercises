@@ -5,6 +5,11 @@
                 <h1>Filters & Mixins</h1>
                 <p>{{ text | toUppercase  }}</p>
                 <p>{{ text | toLowercase }}</p>
+                <hr>
+                <input v-model="filterText">
+                <ul>
+                    <li v-for="fruit in filteredFruits">{{ fruit }}</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -14,12 +19,21 @@
     export default {
         data () {
             return {
-                text: 'Hello There!'
+                text: 'Hello There!',
+                fruits: ['Apple', 'Mango', 'Melon', 'Orange'],
+                filterText: ''
             }
         },
         filters: {
             toUppercase(value) {
                 return value.toUpperCase();
+            }
+        },
+        computed: {
+            filteredFruits() {
+                return this.fruits.filter((element) => {
+                    return element.match(this.filterText);
+                });
             }
         }
     }
