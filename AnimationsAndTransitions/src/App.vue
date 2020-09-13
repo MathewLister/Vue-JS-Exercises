@@ -47,12 +47,39 @@
                     :css="false">
                     <div style="width: 300px; height: 100px; background-color: lightgreen;" v-if="load"></div>
                 </transition>
+                <h1>Dynamic Components Animations With Vue JS</h1>
+                <hr>
+                <button class="btn btn-primary" @click="selectedComponent == 'app-success-alert' ? selectedComponent = 'app-danger-alert' : selectedComponent = 'app-success-alert'">Toogle Components</button>
+                <br><br>
+                <transition name="fade" mode="out-in">
+                    <component :is="selectedComponent"></component>
+                </transition>
+                <br>
+                <h1>Group Animations</h1>
+                <hr>
+                <button class="btn btn-primary" @click="addItem">Add Item</button>
+                <br><br>
+                <ul class="list-group">
+                    <transition-group name="slide">
+                        <li 
+                            class="list-group-item"
+                            v-for="(num, index) in nums" 
+                            @click="removeItem(index)"
+                            style="cursor: pointer"
+                            key="num">{{ num }}
+                        </li>
+                </transition-group>
+                </ul>
+                <br><br>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    import DangerAlert from './DangerAlert.vue';
+    import SuccessAlert from './SuccessAlert.vue';
+
     export default {
         data() {
             return {
@@ -60,9 +87,18 @@
                 load: true,
                 alertAnimation: 'fade',
                 elementWidth: 100,
+                selectedComponent: 'app-success-alert',
+                nums: [1, 2, 3, 4, 5]
             }
         },
         methods: {
+            addItem() {
+                const pos = Math.floor(Math.random() * this.nums.length);
+                this.nums.splice(pos, 0, this.nums.length + 1);
+            },
+            removeItem(index) {
+                this.nums.splice(index, 1);
+            },
             beforeEnter(el) {
                 this.elementWidth = 100;
                 el.style.width = this.elementWidth + 'px';
@@ -102,6 +138,10 @@
             leaveCancelled(el) {
 
             }
+        },
+        components: {
+            'app-danger-alert': DangerAlert,
+            'app-success-alert': SuccessAlert
         }
     }
 </script>
@@ -138,9 +178,14 @@
     }
 
     .slide-leave-active {
-        animation: slide-in 1s ease-out forwards;
+        animation: slide-out 1s ease-out forwards;
         transition: opacity 1s;
         opacity: 0;
+        position: absolute;
+    }
+
+    .slide-move {
+        transition: transform 1s;
     }
 
     @keyframes slide-in {
