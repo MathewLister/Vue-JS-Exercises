@@ -7,7 +7,7 @@ Small projects I worked on while going through the Udemy Vue JS - The Complete G
 ### StarWars-Fighter
 ![StarWars-Fighter Demo](Gifs/StarWarsDemo.gif)
 ### Quotes-VueJS
-![Quotes-VueJS Demo](Gifs/QuoteDemo.gif)
+![Quotes-VueJS Demo](Gifs/QuotesDemo.gif)
 
 
 ## Exercises
