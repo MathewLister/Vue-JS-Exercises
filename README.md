@@ -1,38 +1,32 @@
 # Vue-JS-Exercises
-Small projects I made while learning how to use Vue JS
+Small projects I worked on while going through the Udemy Vue JS - The Complete Guide (https://www.udemy.com/course/vuejs-2-the-complete-guide/)
 
-## QuizApp
-
-## AnimationsAndTransitions
-
-## Forms
-
-## MoreForms
-
-## StarWars-Fighter
-![StarWars-Fighter Demo](Gifs/demo.gif)
-
-## Quotes-VueJS
-
-## SharingComponents
-
-## Components
-
-## FiltersAndMixins
-
-## MoreDirectives
-
-## Slots
+## Projects
+### QuizApp
+![QuizzApp Demo](Gifs/QuizDemo.gif)
+### StarWars-Fighter
+![StarWars-Fighter Demo](Gifs/StarWarsDemo.gif)
+### Quotes-VueJS
+![Quotes-VueJS Demo](Gifs/QuoteDemo.gif)
 
 
+## Exercises
 
+### AnimationsAndTransitions
 
+### Forms
 
+### MoreForms
 
+### SharingComponents
 
+### Components
 
+### FiltersAndMixins
 
+### MoreDirectives
 
+### Slots
 
 # vue-cli
 
