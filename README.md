@@ -1,5 +1,6 @@
 # Vue-JS-Exercises
 Small projects I worked on while going through the Udemy Vue JS - The Complete Guide (https://www.udemy.com/course/vuejs-2-the-complete-guide/)
+Note: Animations seems laggy because of the recoding software I used.
 
 ## Projects
 ### QuizApp
