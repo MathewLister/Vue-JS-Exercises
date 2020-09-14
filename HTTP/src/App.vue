@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-                <h1>HTTP</h1>
+                <h1>HTTP With Firebase</h1>
                 <div class="form-group">
                     <label>Username</label>
                     <input type="text" class="form-control" v-model="user.username">
@@ -36,7 +36,7 @@
         },
         methods: {
             submit() {
-                this.$http.post('https://vuejs-http-48d0a.firebaseio.com/data.json', this.user)
+                this.$http.post('', this.user)
                     .then(response => {
                         console.log(response);
                     }, error => {
@@ -44,7 +44,7 @@
                     });
             },
             fetchData () {
-                this.$http.get('https://vuejs-http-48d0a.firebaseio.com/data.json')
+                this.$http.get('')
                     .then(response => {
                         return response.json();
                     })
