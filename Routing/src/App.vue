@@ -5,7 +5,9 @@
                 <h1>Routing</h1>
                 <hr>
                 <router-view name="header-top"></router-view>
-                <router-view></router-view>
+                <transition mode="out-in" enter-active-class="animate__animated animate__rubberBand animate_faster">
+                    <router-view></router-view>
+                </transition>
                 <router-view name="header-bottom"></router-view>
             </div>
         </div>
