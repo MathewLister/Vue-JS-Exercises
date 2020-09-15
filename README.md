@@ -13,6 +13,8 @@ Note: Animations seems laggy because of the recoding software I used.
 
 ## Exercises
 
+### Routing
+
 ### AnimationsAndTransitions
 
 ### Forms
