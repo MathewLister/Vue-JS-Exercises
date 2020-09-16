@@ -1,7 +1,7 @@
 <template>
     <div class="col-sm-6 col-md-4">
-        <div class="card" style="width: 18rem;">
-            <div class="card-header bg-success">Name</div>
+        <div class="shadow-sm card" style="width: 18rem;">
+            <div class="card-header text-white bg-success">Name</div>
             <div class="card-body">
                 <h5 class="card-title">Card title
                     <small>(Price: $128.00)</small>
