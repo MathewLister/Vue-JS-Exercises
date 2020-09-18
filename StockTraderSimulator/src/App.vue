@@ -3,7 +3,9 @@
         <app-header></app-header>
         <div class="row">
             <div class="col-xs-12">
-                   <router-view></router-view>
+                <transition mode="out-in" enter-active-class="animate__animated animate__fadeInDown animate__faster">
+                    <router-view></router-view>
+                </transition>
             </div>
         </div>
     </div>

@@ -11,7 +11,7 @@
                 <router-link to="/stocks" class="nav-item" activeClass="active" tag="li"><a class="nav-link">Stocks</a></router-link>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="nav-item"><a href="#" class="nav-link">End Day</a></li>
+                <li class="nav-item"><a style="cursor: pointer;" @click="endDay" class="nav-link">End Day</a></li>
                 <li class="nav-item dropdown">
                     <a 
                     class="nav-link dropdown-toggle" 
@@ -23,17 +23,58 @@
                     Save & Load
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Save Data</a>
-                    <a class="dropdown-item" href="#">Load Data</a>
+                    <a class="dropdown-item" @click.prevent="saveData">Save Data</a>
+                    <a class="dropdown-item" @click.prevent="loadData">Load Data</a>
                     </div>
                 </li>
             </ul>
+            <strong class="navbar-text navbar-right">Funds: {{ funds | currency }}</strong>
         </div>
     </nav>
 </template>
 
+<script>
+    import { mapActions } from 'vuex';
+
+    export default {
+        data() {
+            return {
+                
+            }
+        },
+        computed: {
+            funds() {
+                return this.$store.getters.funds;
+            }
+        },
+        methods: {
+                ...mapActions({
+                    randomizeStocks: 'randomizeStocks',
+                    fetchData: 'loadData'
+                }),
+            endDay() {
+                this.randomizeStocks();
+            },
+            saveData() {
+                const data = {
+                    funds: this.$store.getters.funds,
+                    stockPortfolio: this.$store.getters.stockPortfolio,
+                    stocks: this.$store.getters.stocks
+                };
+                this.$http.put('data.json', data);
+            },
+            loadData() {
+                this.fetchData();
+            }
+        },
+    }
+</script>
+
 <style scoped>
     nav {
         margin-bottom: 20px;
+    }
+    a {
+        cursor: pointer;
     }
 </style>

@@ -15,7 +15,7 @@ const mutations = {
                 quantity: quantity
             });
         }
-        state.funds -= stockPrice.quantity;
+        state.funds -= stockPrice * quantity;
     },
     'SELL_STOCK' (state, {stockId, quantity, stockPrice}) {
         const record = state.portfolioStocks.find(element => element.id == stockId);
@@ -25,6 +25,10 @@ const mutations = {
             state.portfolioStocks.splice(state.portfolioStocks.indexOf(record), 1);
         }
         state.funds += stockPrice * quantity;
+    },
+    'SET_PORTFOLIO' (state, portfolio) {
+        state.funds = portfolio.funds;
+        state.portfolioStocks = portfolio.stockPortfolio ? portfolio.stockPortfolio : [];
     }
 };
 

@@ -1,23 +1,26 @@
 <template>
-    <div class="col-sm-6 col-md-4">
-        <div class="shadow-sm card" style="width: 18rem;">
-            <div class="card-header text-white bg-success">{{ stock.name }} <small>(Price: {{ stock.price }}) | Quantity: {{ stock.quantity }}</small></div>
-            <div class="card-body">
-                <div class="col-sm-7 float-left">
-                    <input 
-                        type="number"
-                        class="form-control"
-                        placeholder="Quantity"
-                        v-model.number="quantity">
+    <div class="row">
+        <div class="col-sm-6 col-md-4">
+            <div class="card shadow-sm" style="width: 18rem;">
+                <div class="card-header text-white bg-secondary">{{ stock.name }} <small>(Price: {{ stock.price }}) | Quantity: {{ stock.quantity }}</small></div>
+                <div class="card-body">
+                    <div class="col-sm-7 float-left">
+                        <input 
+                            type="number"
+                            class="form-control"
+                            placeholder="Quantity"
+                            v-model.number="quantity"
+                            :class="{danger: insufficientQuantity}">
+                    </div>
+                    <div class="float-right">
+                        <button
+                            class="btn btn-danger"
+                            @click="sellStock"
+                            :disabled="insufficientQuantity || quantity <= 0 || !Number.isInteger(quantity)"
+                            >{{ insufficientQuantity ? 'Not Enough' : 'Sell' }}
+                        </button>
+                    </div>    
                 </div>
-                <div class="float-right">
-                    <button
-                        class="btn btn-success"
-                        @click="sellStock"
-                        :disabled="quantity <= 0 || !Number.isInteger(quantity)"
-                        >Sell
-                    </button>
-                </div>    
             </div>
         </div>
     </div>
@@ -33,17 +36,23 @@
                 quantity: 0
             }
         },
+        computed: {
+            insufficientQuantity() {
+                return this.quantity > this.stock.quantity;
+            }
+        },
         methods: {
-                ...mapActions([
-                    'sellStock'
-                ]),
+                ...mapActions({
+                    placeSellOrder: 'sellStock'
+                }),
             sellStock() {
                 const order = {
                     stockId: this.stock.id,
                     stockPrice: this.stock.price,
                     quantity: this.stock.quantity
                 };
-                this.sellStock();
+                this.placeSellOrder(order);
+                this.quantity = 0;
             },
         }
     }
@@ -52,5 +61,9 @@
 <style scoped>
     .card {
         margin: 12px;
+    }
+
+    .danger {
+        border: 1px solid red;
     }
 </style>
