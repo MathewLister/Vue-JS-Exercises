@@ -68,4 +68,8 @@ export default {
         background-color: #282828;
         color: white;
     }
+
+    input:focus {
+        border-color: #045d56;
+    }
 </style>

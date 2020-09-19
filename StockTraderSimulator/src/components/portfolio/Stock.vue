@@ -3,24 +3,21 @@
         <div class="card-header text-white">{{ stock.name }} <small>(Price: {{ stock.price }}) | Quantity: {{ stock.quantity }}</small>
             <div class="card-body">
                 <div class="input-group" aria-describedby="basic-addon2">
-                    
-                </div>
-                <div class="col-sm-7 float-left">
                     <input 
                         type="number"
-                        class="form-control"
+                        class="form-control shadow-none"
                         placeholder="Quantity"
                         v-model.number="quantity"
                         :class="{danger: insufficientQuantity}"
                     >
-                </div>
-                <div class="float-right">
-                    <button
-                        class="btn btn-danger"
-                        @click="sellStock"
-                        :disabled="insufficientQuantity || quantity <= 0 || !Number.isInteger(quantity)"
-                        >{{ insufficientQuantity ? 'Not Enough' : 'Sell' }}
-                    </button>
+                    <div class="input-group-append">
+                        <button
+                            class="btn btn-danger"
+                            @click="sellStock"
+                            :disabled="insufficientQuantity || quantity <= 0 || !Number.isInteger(quantity)"
+                            >{{ insufficientQuantity ? 'Not Enough' : 'Sell' }}
+                        </button>
+                    </div>
                 </div>
             </div>    
         </div>            
@@ -71,5 +68,9 @@
     .btn {
         background-color: #282828;
         color: white;
+    }
+
+    input:focus {
+        border-color: #ffcf44;
     }
 </style>
