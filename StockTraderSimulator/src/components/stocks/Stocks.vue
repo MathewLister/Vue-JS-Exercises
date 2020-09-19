@@ -1,5 +1,5 @@
 <template>
-    <div class="row">
+    <div class="card-deck">
         <app-stock v-for="stock in stocks" :stock="stock"></app-stock>
     </div>
 </template>
@@ -18,3 +18,9 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+    .card-deck {
+        margin-top: 50px;
+    }
+</style>

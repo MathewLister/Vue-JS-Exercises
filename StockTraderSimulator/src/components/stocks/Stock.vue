@@ -1,25 +1,24 @@
 <template>
-    <div class="row">
-        <div class="col-sm-6 col-md-4">
-            <div class="card shadow-sm" style="width: 18rem;">
-                <div class="card-header text-white bg-success">{{ stock.name }} <small>(Price: {{ stock.price }})</small></div>
-                <div class="card-body">
-                    <div class="col-sm-7 float-left">
-                        <input 
-                            type="number"
-                            class="form-control shadow-none"
-                            placeholder="Quantity"
-                            v-model.number="quantity"
-                            :class="{danger: insufficientFunds}">
-                    </div>
-                    <div class="float-right">
-                        <button
-                            class="btn btn-success"
-                            @click="buyStock"
-                            :disabled="insufficientFunds || quantity <= 0 || !Number.isInteger(quantity)"
-                            >{{ insufficientFunds ? 'Add Funds' : 'Buy' }}
-                        </button>
-                    </div>    
+    <div class="card shadow-sm">
+        <div class="card-header text-white bg-success">{{ stock.name }} <small>(Price: {{ stock.price }})</small>
+            <div class="card-body">
+                <div class="input-group" aria-describedby="basic-addon2">
+                    <input 
+                        type="number"
+                        class="form-control shadow-none"
+                        placeholder="Quantity"
+                        v-model.number="quantity"
+                        :class="{danger: insufficientFunds}">
+                    <div class="input-group-append">
+                    <button
+                        type="button"
+                        class="btn"
+                        style="background-color: #363636;"
+                        @click="buyStock"
+                        :disabled="insufficientFunds || quantity <= 0 || !Number.isInteger(quantity)"
+                        >{{ insufficientFunds ? 'Add Funds' : 'Buy' }}
+                    </button>
+                </div>    
                 </div>
             </div>
         </div>
@@ -58,10 +57,6 @@ export default {
 </script>
 
 <style scoped>
-    .card {
-        margin: 12px;
-    }
-
     .danger {
         border: 1px solid red;
     }

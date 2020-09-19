@@ -1,28 +1,26 @@
 <template>
-    <div class="row">
-        <div class="col-sm-6 col-md-4">
-            <div class="card shadow-sm" style="width: 18rem;">
-                <div class="card-header text-white bg-secondary">{{ stock.name }} <small>(Price: {{ stock.price }}) | Quantity: {{ stock.quantity }}</small></div>
-                <div class="card-body">
-                    <div class="col-sm-7 float-left">
-                        <input 
-                            type="number"
-                            class="form-control"
-                            placeholder="Quantity"
-                            v-model.number="quantity"
-                            :class="{danger: insufficientQuantity}">
-                    </div>
-                    <div class="float-right">
-                        <button
-                            class="btn btn-danger"
-                            @click="sellStock"
-                            :disabled="insufficientQuantity || quantity <= 0 || !Number.isInteger(quantity)"
-                            >{{ insufficientQuantity ? 'Not Enough' : 'Sell' }}
-                        </button>
-                    </div>    
+    <div class="card shadow-sm">
+        <div class="card-header text-white bg-secondary">{{ stock.name }} <small>(Price: {{ stock.price }}) | Quantity: {{ stock.quantity }}</small>
+            <div class="card-body">
+                <div class="col-sm-7 float-left">
+                    <input 
+                        type="number"
+                        class="form-control"
+                        placeholder="Quantity"
+                        v-model.number="quantity"
+                        :class="{danger: insufficientQuantity}"
+                    >
                 </div>
-            </div>
-        </div>
+                <div class="float-right">
+                    <button
+                        class="btn btn-danger"
+                        @click="sellStock"
+                        :disabled="insufficientQuantity || quantity <= 0 || !Number.isInteger(quantity)"
+                        >{{ insufficientQuantity ? 'Not Enough' : 'Sell' }}
+                    </button>
+                </div>
+            </div>    
+        </div>            
     </div>
 </template>
 
