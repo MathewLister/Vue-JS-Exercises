@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <router-link class="navbar-brand" to="/">Stock Trader</router-link>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,5 +74,18 @@
 <style scoped>
     a {
         cursor: pointer;
+    }
+
+    .dropdown-item {
+        color: #282828;
+    }
+
+    nav {
+        background-color: #282828;
+        color: white;
+    }
+
+    .dropdown-item:hover {
+        color: #282828;
     }
 </style>

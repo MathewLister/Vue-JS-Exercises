@@ -19,3 +19,9 @@
         }
     }
 </script>
+
+<style scoped>
+    .card-deck {
+        margin-top: 50px;
+    }
+</style>

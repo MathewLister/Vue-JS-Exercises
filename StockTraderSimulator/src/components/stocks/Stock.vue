@@ -1,6 +1,6 @@
 <template>
     <div class="card shadow-sm">
-        <div class="card-header text-white bg-success">{{ stock.name }} <small>(Price: {{ stock.price }})</small>
+        <div class="card-header text-white">{{ stock.name }} <small>(Price: {{ stock.price }})</small>
             <div class="card-body">
                 <div class="input-group" aria-describedby="basic-addon2">
                     <input 
@@ -13,7 +13,6 @@
                     <button
                         type="button"
                         class="btn"
-                        style="background-color: #363636;"
                         @click="buyStock"
                         :disabled="insufficientFunds || quantity <= 0 || !Number.isInteger(quantity)"
                         >{{ insufficientFunds ? 'Add Funds' : 'Buy' }}
@@ -59,5 +58,14 @@ export default {
 <style scoped>
     .danger {
         border: 1px solid red;
+    }
+
+    .card {
+        background-color: #1eb980;
+    }
+
+    .btn {
+        background-color: #282828;
+        color: white;
     }
 </style>
