@@ -70,6 +70,10 @@
         color: white;
     }
 
+    .btn:disabled{
+        opacity: .7;
+    }
+
     input:focus {
         border-color: #ffcf44;
     }

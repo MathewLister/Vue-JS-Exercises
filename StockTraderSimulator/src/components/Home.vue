@@ -1,8 +1,8 @@
 <template>
-    <div>
-        <h1>Trade or view your portfolio</h1>
-        <h6>You may save or load you data</h6>
-        <h6>Click 'End Day' to being a new day</h6>
+    <div class="portfolio-overview">
+        <h1>Trade or View Your Portfolio</h1>
+        <h6>You can save or load your data</h6>
+        <h6>Click 'End Day' to get the next days stock prices</h6>
         <hr>
         <p>You Funds: {{ funds | currency }}</p>
     </div>    
@@ -17,3 +17,9 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+    .portfolio-overview {
+        margin-top: 50px;
+    }
+</style>

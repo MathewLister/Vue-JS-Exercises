@@ -69,6 +69,10 @@ export default {
         color: white;
     }
 
+    .btn:disabled{
+        opacity: .7;
+    }
+
     input:focus {
         border-color: #045d56;
     }
