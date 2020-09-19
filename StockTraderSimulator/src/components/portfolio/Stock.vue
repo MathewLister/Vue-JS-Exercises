@@ -2,6 +2,9 @@
     <div class="card shadow-sm">
         <div class="card-header text-white bg-secondary">{{ stock.name }} <small>(Price: {{ stock.price }}) | Quantity: {{ stock.quantity }}</small>
             <div class="card-body">
+                <div class="input-group" aria-describedby="basic-addon2">
+                    
+                </div>
                 <div class="col-sm-7 float-left">
                     <input 
                         type="number"
