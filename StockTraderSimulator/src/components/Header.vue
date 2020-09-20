@@ -1,7 +1,6 @@
 <template>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-            <img src="../assets/meta.png" alt="">
             <router-link class="navbar-brand" data-toggle="collapse" data-target="#navbarSupportedContent" to="/">Stock Trader</router-link>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -88,11 +87,5 @@
 
     .dropdown-item:hover {
         color: #282828;
-    }
-
-    img {
-        width: .1px;
-        height: .1px;
-        border-radius: 50%;
     }
 </style>
